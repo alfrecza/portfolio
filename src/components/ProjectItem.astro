@@ -1,0 +1,28 @@
+---
+import IconNext from '../components/icons/Next.astro'
+
+
+interface Props {
+    title : string;
+    description: string;
+    img: string;
+    tecnology: object;
+
+}
+
+const {title, description, img, tecnology} = Astro.props
+
+console.log(tecnology)
+---
+
+<div class="mt-4">
+    <h2 class="text-2xl font-bold text-purple-300">{title}</h2>
+    <p>{description}</p>
+    <div>
+        {tecnology.map(t => (
+            <a class="flex items-center gap-x-2 text-md border rounded-full w-32 justify-center my-4">{t.icon === 'IconNext' && <IconNext/>}{t.icon === 'IconNext' && 'Next'}</a>
+        ))}
+    </div>
+    <img src={img} alt="image project">
+
+</div>

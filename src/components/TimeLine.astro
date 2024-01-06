@@ -1,0 +1,33 @@
+---
+import ExperienceItem from '../components/ExperienceItem.astro'
+
+const experience = [
+    {
+        time: 'Jaunary 2022',
+        title: 'Aplicacion Web, Quiosco de Comida - Next.js',
+        description: 'Esta aplicacion es fullstack, te permite ver un catalogo de productos que son obtenidos desde una base de datos, seleccionarlos y agregarlo al carrito. De esta forma se crea un orden que la puede ver el cocinero'
+    },
+    {
+        time: 'February 2023',
+        title: 'Aplicacion Web, Quiosco de Comida - Next.js',
+        description: 'Esta aplicacion es fullstack, te permite ver un catalogo de productos que son obtenidos desde una base de datos, seleccionarlos y agregarlo al carrito. De esta forma se crea un orden que la puede ver el cocinero'
+    },
+    {
+        time: 'April 2024',
+        title: 'Aplicacion Web, Quiosco de Comida - Next.js',
+        description: 'Esta aplicacion es fullstack, te permite ver un catalogo de productos que son obtenidos desde una base de datos, seleccionarlos y agregarlo al carrito. De esta forma se crea un orden que la puede ver el cocinero'
+    }
+]
+
+---
+<section class="w-2/4 m-auto mt-28">
+    <h2 class=" text-3xl font-semibold mb-4 text-gray-300">Work experience</h2>
+    <ol class="relative border-s border-gray-200 dark:border-gray-700">   
+        {experience.map((e) => (
+            <li class="mb-10 ms-4">
+                <ExperienceItem description={e.description} title={e.title} time={e.time}/>
+            </li>
+        ))}               
+    </ol>
+</section>
+
