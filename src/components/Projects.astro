@@ -1,64 +1,83 @@
 ---
-import ProjectItem from '../components/ProjectItem.astro'
+import Next from "./icons/Next.astro";
+import Tailwind from "./icons/Tailwind.astro";
 
-    const projects = [  
-        {
-            title: 'Cotizador de seguros',
-            description: 'Este proyesda consisteb en bueno eso si lees esto sos bueno como te decia',
-            img: '../../public/imagen-project.jpeg',
-            tecnology: [
-                {
-                    icon: 'IconNext',
-                    name: 'Next'
-                }
-            ]
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: Next,
+  },
+  TAILWIND: {
+    name: "TailwindCSS",
+    class: "bg-white text-[#73bcf6]",
+    icon: Tailwind,
+  },
+};
 
-        },
-        {
-            title: 'Calculadora',
-            description: 'Este proyesda consisteb en bueno eso si lees esto sos bueno como te decia',
-            img: '../../public/imagen-project.jpeg',
-            tecnology: [
-                {
-                    icon: 'IconNext',
-                    name: 'Next'
-                }
-            ]
-
-        },
-        {
-            title: 'Administrador de Veterinaria',
-            description: 'Este proyesda consisteb en bueno eso si lees esto sos bueno como te decia',
-            img: '../../public/imagen-project.jpeg',
-            tecnology: [
-                {
-                    icon: "IconNext",
-                    name: 'Next'
-                }
-            ]
-
-        },
-        {
-            title: 'Carrito de compras',
-            description: 'Este proyesda consisteb en bueno eso si lees esto sos bueno como te decia',
-            img: '../../public/imagen-project.jpeg',
-            tecnology: [
-                {
-                    icon: "IconNext",
-                    name: 'Next'
-                }
-            ]
-
-        }
-    ]
+const projects = [
+  {
+    title: "Cotizador de seguros",
+    description:
+      "Este proyesda consisteb en bueno eso si lees esto sos bueno como te decia",
+    img: "../../public/imagen-project.jpeg",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    title: "Calculadora",
+    description:
+      "Este proyesda consisteb en bueno eso si lees esto sos bueno como te decia",
+    img: "../../public/imagen-project.jpeg",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    title: "Administrador de Veterinaria",
+    description:
+      "Este proyesda consisteb en bueno eso si lees esto sos bueno como te decia",
+    img: "../../public/imagen-project.jpeg",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    title: "Carrito de compras y bueno eso xd lol omg",
+    description:
+      "Este proyesda consisteb en bueno eso si lees esto sos bueno como te decia",
+    img: "../../public/imagen-project.jpeg",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+];
 ---
 
 <section class="w-2/4 m-auto mt-28">
-    <h2 class="text-gray-300 font-bold text-3xl">{'</>'} Projects</h2>
-    <div class="mt-16 grid grid-cols-2 gap-x-10 gap-y-16">
-        {projects.map((p) => (
-            <ProjectItem description={p.description}, title={p.title} img={p.img} tecnology={p.tecnology}/>
-        ))}
-    </div>
-
+  <h2 class="text-gray-300 font-bold text-3xl">{"</>"} Projects</h2>
+  <div class="mt-6 grid grid-cols-2 gap-x-10 gap-y-16">
+    {
+      projects.map(({img, title, description, tags}) => (
+        <article class="mt-4 flex flex-col ">
+          <h2 class="text-2xl font-bold text-purple-300 resumenTitulo">
+            {title}
+          </h2>
+          <p>{description}</p>
+          <div class="flex gap-x-2 my-4">
+            {tags.map(tag => (
+                <p><span class="flex gap-x-2 rounded-full ${tag.class} py-1 px-2 border border-white/10"><tag.icon/>{tag.name}</span></p>
+            ))}
+          </div>
+          <img src={img} alt="image project" />
+          <div class="flex gap-x-4 mt-4">
+            <a href="#" class="font-bold text-lg text-center bg-pink-700 px-4 rounded-md">GitHub</a>  
+            <a href="#" class="font-bold text-lg text-center bg-purple-400 px-4 rounded-md">Page</a>  
+          </div>
+        </article>
+      ))
+    }
+  </div>
 </section>
+
+<style>
+    .resumenTitulo {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+    }
+</style>
