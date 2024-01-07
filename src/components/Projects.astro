@@ -17,46 +17,46 @@ const TAGS = {
 
 const projects = [
   {
-    title: "Cotizador de seguros",
+    title: "App Control de presupuesto",
     description:
-      "Este proyesda consisteb en bueno eso si lees esto sos bueno como te decia",
-    img: "../../public/imagen-project.jpeg",
+      "Esta app te permite definir y administrar un presupuesto, se pueden ir agregando distintos tipos de gastos con distintas categorias",
+    img: "../../public/administradora-gastos.png",
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
   {
-    title: "Calculadora",
+    title: "Ecommerce Suplementos",
     description:
-      "Este proyesda consisteb en bueno eso si lees esto sos bueno como te decia",
-    img: "../../public/imagen-project.jpeg",
+      "Este es un sitio web muy completo, cuenta con todas las funciones necesarias para un ecommerce, carrito de compras, inicio, contacto, acerca de, pasarelas de pago y mucho mas",
+    img: '../../public/ecommerce.suplement.png',
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
   {
-    title: "Administrador de Veterinaria",
+    title: "Cotizador seguros de autos",
     description:
-      "Este proyesda consisteb en bueno eso si lees esto sos bueno como te decia",
-    img: "../../public/imagen-project.jpeg",
+      "Esta applicacion web, permite cotizar el valor de seguro de un vehiculo pudiendo seleccionar 3 distintos factores determinantes",
+    img: "../../public/cotizer-cars.png",
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
   {
-    title: "Carrito de compras y bueno eso xd lol omg",
+    title: "Buscador de noticias",
     description:
-      "Este proyesda consisteb en bueno eso si lees esto sos bueno como te decia",
-    img: "../../public/imagen-project.jpeg",
+      "App que permite obtener datos de una API (NewsAPI) y renderizar noticias de distintas categorias. Se utilizó MUI (Material UI) para el diseño y se implementó el uso de un paginado.",
+    img: "../../public/last-news.png",
     tags: [TAGS.NEXT, TAGS.TAILWIND],
   },
 ];
 ---
 
-<section class="w-2/4 m-auto mt-28">
+<section class="w-9/12 sm:3/4 md:w-2/4 m-auto mt-28">
   <h2 class="text-gray-300 font-bold text-3xl">{"</>"} Projects</h2>
-  <div class="mt-6 grid grid-cols-2 gap-x-10 gap-y-16">
+  <div class="mt-6 grid-col-1 grid lg:grid-cols-2 gap-x-10 gap-y-16">
     {
       projects.map(({img, title, description, tags}) => (
         <article class="mt-4 flex flex-col ">
-          <h2 class="text-2xl font-bold text-purple-300 resumenTitulo">
+          <h2 class="text-2xl font-bold text-purple-300 resumenTitle">
             {title}
           </h2>
-          <p>{description}</p>
+          <p class="resumenDescription">{description}</p>
           <div class="flex gap-x-2 my-4">
             {tags.map(tag => (
                 <p><span class="flex gap-x-2 rounded-full ${tag.class} py-1 px-2 border border-white/10"><tag.icon/>{tag.name}</span></p>
@@ -64,8 +64,8 @@ const projects = [
           </div>
           <img src={img} alt="image project" />
           <div class="flex gap-x-4 mt-4">
-            <a href="#" class="font-bold text-lg text-center bg-pink-700 px-4 rounded-md">GitHub</a>  
-            <a href="#" class="font-bold text-lg text-center bg-purple-400 px-4 rounded-md">Page</a>  
+            <a href="#" class="font-bold text-lg text-center bg-pink-700 px-4 rounded-md hover:bg-pink-600">GitHub</a>  
+            <a href="#" class="font-bold text-lg text-center bg-purple-400 px-4 rounded-md hover:bg-purple-300">Page</a>  
           </div>
         </article>
       ))
@@ -74,10 +74,17 @@ const projects = [
 </section>
 
 <style>
-    .resumenTitulo {
+    .resumenTitle {
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 1;
+        overflow: hidden;
+    }
+
+    .resumenDescription {
+      display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
         overflow: hidden;
     }
 </style>
