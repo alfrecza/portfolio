@@ -1,53 +1,72 @@
 ---
 import Next from "./icons/Next.astro";
 import Tailwind from "./icons/Tailwind.astro";
+import React from "./icons/React.astro"
+import Bootstrap from "./icons/Bootstrap.astro"
+import Wordpress from "./icons/Wordpress.astro"
+
 
 const TAGS = {
   NEXT: {
     name: "Next.js",
-    class: "bg-black text-white",
+    class: "bg-white text-black",
     icon: Next,
   },
   TAILWIND: {
     name: "TailwindCSS",
-    class: "bg-white text-[#73bcf6]",
+    class: "text-white bg-[#73bcf6]",
     icon: Tailwind,
   },
+  REACT: {
+    name:"React",
+    class: "bg-[#00D8FF] text-white",
+    icon: React
+  },
+  BOOTSTRAP: {
+    name: "Bootstrap",
+    class: "bg-[#7E13F8] text-white",
+    icon: Bootstrap
+  },
+  WORDPRESS: {
+    name: "Wordpress",
+    class: "bg-[#3217] text-white",
+    icon: Wordpress
+  }
 };
 
 const projects = [
   {
     title: "App Control de presupuesto",
     description:
-      "Esta app te permite definir y administrar un presupuesto, se pueden ir agregando distintos tipos de gastos con distintas categorias",
+      "This application allows you to define and manage a budget, you can add different types of expenses with different categories.",
     img: "/administradora-gastos.png",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    tags: [TAGS.REACT, TAGS.TAILWIND],
   },
   {
     title: "Ecommerce Suplementos",
     description:
-      "Este es un sitio web muy completo, cuenta con todas las funciones necesarias para un ecommerce, carrito de compras, inicio, contacto, acerca de, pasarelas de pago y mucho mas",
+      "This is a very complete website, it has all the necessary functions for an ecommerce, shopping cart, home, contact, about, payment gateways and much more",
     img: '/ecommerce.suplement.png',
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    tags: [TAGS.WORDPRESS],
   },
   {
     title: "Cotizador seguros de autos",
     description:
-      "Esta applicacion web, permite cotizar el valor de seguro de un vehiculo pudiendo seleccionar 3 distintos factores determinantes",
+      "This web application allows you to quote the insurance value of a vehicle, being able to select 3 different determining factors.",
     img: "/cotizer-cars.png",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    tags: [TAGS.REACT, TAGS.TAILWIND],
   },
   {
     title: "Buscador de noticias",
     description:
-      "App que permite obtener datos de una API (NewsAPI) y renderizar noticias de distintas categorias. Se utilizó MUI (Material UI) para el diseño y se implementó el uso de un paginado.",
+      "App that allows you to obtain data from an API (NewsAPI) and render news from different categories. MUI (Material UI) was used for the design and the use of pagination was implemented.",
     img: "/last-news.png",
-    tags: [TAGS.NEXT, TAGS.TAILWIND],
+    tags: [TAGS.REACT, TAGS.BOOTSTRAP],
   },
 ];
 ---
 
-<section class="w-9/12 sm:3/4 md:w-2/4 m-auto mt-28">
+<section class="w-9/12 sm:3/4 md:w-2/4 m-auto mt-28 scroll-mt-28" id="projects">
   <h2 class="text-gray-300 font-bold text-3xl">{"</>"} Projects</h2>
   <div class="mt-6 grid-col-1 grid lg:grid-cols-2 gap-x-10 gap-y-16">
     {
@@ -57,9 +76,9 @@ const projects = [
             {title}
           </h2>
           <p class="resumenDescription">{description}</p>
-          <div class="flex gap-x-2 my-4">
+          <div class="flex gap-x-2 my-4 items-center">
             {tags.map(tag => (
-                <p><span class="flex gap-x-2 rounded-full ${tag.class} py-1 px-2 border border-white/10"><tag.icon/>{tag.name}</span></p>
+                <p><span class={`flex gap-x-2 rounded-full ${tag.class} py-1 px-2 border border-white/10 items-center`}><tag.icon/>{tag.name}</span></p>
             ))}
           </div>
           <img src={img} alt="image project" />
